@@ -1,6 +1,10 @@
 from fastapi import FastAPI
-from routes.Inicio import router as inicio_router
+from routes.productos import router as inicio_router
 from fastapi.middleware.cors import CORSMiddleware
+from db.database import Base, motor
+
+# Crear las tablas si no existen
+Base.metadata.create_all(bind=motor)
 
 app = FastAPI()
 app.include_router(inicio_router)
