@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from db.database import crearSession
-from schema.schema_Productos import CrearProducto, ProductoBase
+from schema.schema_Productos import CrearProducto
 from api.api_Productos import crear_producto
 
 
