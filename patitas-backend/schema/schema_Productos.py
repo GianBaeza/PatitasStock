@@ -1,7 +1,9 @@
 from pydantic import BaseModel, Field, field_validator
+from typing import Optional
 
 
 class ProductoBase(BaseModel):
+   
     nombre: str = Field(..., min_length=1, description="Nombre del producto")
     descripcion: str = Field(..., max_length=1000)
     precio: float = Field(
@@ -34,6 +36,14 @@ class ProductoBase(BaseModel):
             raise ValueError("El stock no puede exceder 1,000,000 unidades")
         return valor
 
-class CrearProducto(ProductoBase):
+
+class ProductoDTO(ProductoBase):
+    id: Optional[int] = None  # Opcional para crear nuevos productos
     categoria: str | None
-    
+
+
+class ResponseProducto(ProductoBase):
+    id: int
+
+    class Config:
+        orm_mode = True  # Permite que Pydantic use los modelos de SQLAlchemy directamente
