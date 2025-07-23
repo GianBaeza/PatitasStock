@@ -37,6 +37,7 @@ def ObtenerProductos(
 
 @router.post("/crear", response_model=ProductoDTO, status_code=201)
 def CrearNuevoProducto(producto: ProductoDTO, db: Session = Depends(get_db)):
+    print("🚀 Creando nuevo producto:", producto)
     try:
         # Validaciones básicas
         if not producto.nombre or producto.nombre.strip() == "":
