@@ -4,8 +4,8 @@ from typing import Optional
 
 
 class ProductoDTO(BaseModel):
-    nombre: str = Field(..., min_length=1, max_length=100)
-    descripcion: str = Field(..., min_length=1)
+    nombre: str = Field(..., min_length=1)
+    descripcion: str = Field(..., min_length=1, description="Descripción del producto")
     precio: Decimal = Field(..., gt=0, decimal_places=2)  # Debe ser mayor a 0
     precio_de_venta: Decimal = Field(..., gt=0, decimal_places=2)  # Debe ser mayor a 0
     proveedor: str = Field(..., min_length=1)
@@ -19,7 +19,7 @@ class ResponseProducto(BaseModel):
     descripcion: str
     precio: Decimal
     precio_de_venta: Decimal
-    provedor: str
+    proveedor: str
     stock: int
     categoria: Optional[str] = None
 
