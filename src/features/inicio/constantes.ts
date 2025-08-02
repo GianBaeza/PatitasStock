@@ -1,7 +1,7 @@
-import { crearSubMenu } from "@/shared/utils/createSubMenu";
+import { crearSubMenu } from "@/lib/utils/createSubMenu";
 
 export const subMenu = [
-    crearSubMenu('Inicio', 'home', '/inicio'),
-    crearSubMenu('Productos', 'store', '/productos'),
-    crearSubMenu('Rendimientos', 'rendimientos', '/rendimientos'),
-]
+    crearSubMenu("Inicio", "home", "/"),
+    crearSubMenu("Productos", "store", "/productos"),
+    crearSubMenu("Rendimientos", "rendimientos", "/rendimientos"),
+];
