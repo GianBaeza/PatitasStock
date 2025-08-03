@@ -1,0 +1,4 @@
+/* custom-explorer-indent.css */
+.monaco-list-row {
+  padding-left: 32px !important;
+}
